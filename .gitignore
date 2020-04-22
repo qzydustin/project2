@@ -1,0 +1,14 @@
+# dependencies
+consumer/node_modules
+consumer/.pnp
+consumer/.pnp.js
+
+# testing
+consumer/coverage
+
+# production
+consumer/build
+
+consumer/npm-debug.log*
+consumer/yarn-debug.log*
+consumer/yarn-error.log*
