@@ -1,0 +1,6 @@
+DROP DATABASE IF EXISTS message;
+DROP USER IF EXISTS message_user;
+
+CREATE DATABASE message CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE USER message_user IDENTIFIED BY 'QWERTY123uwec';
+GRANT ALL PRIVILEGES ON message.* TO message_user;
