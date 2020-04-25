@@ -3,9 +3,8 @@ CREATE TABLE Message(
     id SERIAL PRIMARY KEY,
     key CHAR(20),
     message TEXT,
-    will_deleted INT default 0,
-    is_deleted INT default 0,
-    day INT,
-    month INT,
-    year INT,
+    id_deleted INT DEFAULT 0,
+    will_deleted INT DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
