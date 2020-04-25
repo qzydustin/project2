@@ -1,5 +1,5 @@
 DROP TABLE IF EXISTS Message;
-CREATE TABLE Message;(
+CREATE TABLE Message(
     id SERIAL PRIMARY KEY,
     key VARCHAR(20),
     message TEXT,
