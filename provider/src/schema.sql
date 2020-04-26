@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS Message;
 CREATE TABLE Message(
     id SERIAL PRIMARY KEY,
-    key CHAR(20),
+    key TEXT,
     message TEXT,
     id_deleted INT DEFAULT 0,
     will_deleted INT DEFAULT 0,
