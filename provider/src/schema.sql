@@ -1,10 +1,11 @@
-DROP TABLE IF EXISTS Message;
-CREATE TABLE Message(
+DROP TABLE IF EXISTS data;
+CREATE TABLE data(
     id SERIAL PRIMARY KEY,
-    key TEXT,
-    message TEXT,
+    pass TEXT,
+    infomation TEXT,
     id_deleted INT DEFAULT 0,
     will_deleted INT DEFAULT 0,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
