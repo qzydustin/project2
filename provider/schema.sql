@@ -4,7 +4,7 @@ CREATE TABLE data(
     pass TEXT,
     information TEXT,
     is_deleted INT DEFAULT 0,
-    will_deleted INT DEFAULT 0,
+    will_deleted INT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
