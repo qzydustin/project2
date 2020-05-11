@@ -46,9 +46,9 @@ app.post('/message',(request,response)=>{
     });
 });
 
-app.patch('/message/:pass', (request,response)=>{
+app.patch('/message/:pass/:information', (request,response)=>{
     const query ='UPDATE data SET information=?,updated_at = CURRENT_TIMESTAMP WHERE pass =?';
-    const params = [request.body.information];
+    const params = [request.body.information,request.body.pass];
     connection.query(query, params, (error, result)=>{
         if(error){
             console.log(`UPDATE ERROR: ${error.message}`);
@@ -61,7 +61,7 @@ app.patch('/message/:pass', (request,response)=>{
 
 app.delete('/message/:pass',(request,response)=>{
     const query ='UPDATE data SET id_deleted = 1,updated_at = CURRENT_TIMESTAMP WHERE pass =?';
-    const params=[request.params.id];
+    const params=[request.params.pass];
     connection.query(query,params,(error,result)=>{
         if(error){
             console.log(`DELETE ERROR: ${error.message}`);
