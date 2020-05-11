@@ -18,7 +18,7 @@ function rowToObject(row){
 }
 
 app.get('/message/:pass',(request, response) =>{
-    const query='SELECT information FROM data WHERE id_deleted = 0 AND pass = ? ORDER BY updated_at DESC';
+    const query='SELECT information FROM data WHERE is_deleted = 0 AND pass = ? ORDER BY updated_at DESC';
     const params=[request.params.pass];
     connection.query(query,params,(error,rows)=>{
         if(error){
