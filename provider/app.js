@@ -60,7 +60,7 @@ app.patch('/message/:pass', (request,response)=>{
 });
 
 app.delete('/message/:pass',(request,response)=>{
-    const query ='UPDATE data SET id_deleted = 1,updated_at = CURRENT_TIMESTAMP WHERE pass =?';
+    const query ='UPDATE data SET is_deleted = 1,updated_at = CURRENT_TIMESTAMP WHERE pass =?';
     const params=[request.params.pass];
     connection.query(query,params,(error,result)=>{
         if(error){
