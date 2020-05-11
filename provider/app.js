@@ -13,12 +13,12 @@ connection.connect();
 
 function rowToObject(row){
     return{
-        message:row.message,
+        information:row.information,
     };
 }
 
 app.get('/message/:pass',(request, response) =>{
-    const query='SELECT message FROM data WHERE id_deleted = 0 ORDER BY updated_at DESC';
+    const query='SELECT information FROM data WHERE id_deleted = 0 AND pass = ? ORDER BY updated_at DESC';
     const params=[request.params.pass];
     connection.query(query,params,(error,rows)=>{
         if(error){
