@@ -59,7 +59,7 @@ app.patch('/message/:pass', (request,response)=>{
     });
 });
 
-app.delete('/memories/:pass',(request,response)=>{
+app.delete('/message/:pass',(request,response)=>{
     const query ='UPDATE data SET id_deleted = 1,updated_at = CURRENT_TIMESTAMP WHERE pass =?';
     const params=[request.params.id];
     connection.query(query,params,(error,result)=>{
