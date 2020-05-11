@@ -46,9 +46,9 @@ app.post('/message',(request,response)=>{
     });
 });
 
-app.patch('/message/:pass/:information', (request,response)=>{
+app.patch('/message/:pass', (request,response)=>{
     const query ='UPDATE data SET information=?,updated_at = CURRENT_TIMESTAMP WHERE pass =?';
-    const params = [request.body.information,request.body.pass];
+    const params = [request.body.information,request.params.pass];
     connection.query(query, params, (error, result)=>{
         if(error){
             console.log(`UPDATE ERROR: ${error.message}`);
