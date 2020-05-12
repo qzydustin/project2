@@ -1,10 +1,12 @@
-DROP TABLE IF EXISTS data;
-CREATE TABLE data(
+DROP TABLE IF EXISTS orders;
+
+CREATE TABLE orders (
     id SERIAL PRIMARY KEY,
-    pass TEXT,
-    information TEXT,
+    item VARCHAR(20),
+    amount VARCHAR(20),
+    note VARCHAR(20),
+    urgent INT DEFAULT 0,
     is_deleted INT DEFAULT 0,
-    will_deleted INT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
