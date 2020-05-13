@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS orders;
 
 CREATE TABLE orders (
     id SERIAL PRIMARY KEY,
-    item VARCHAR(20),
+    items VARCHAR(20),
     amount VARCHAR(20),
     note VARCHAR(20),
     urgent INT DEFAULT 0,
