@@ -5,7 +5,7 @@ CREATE TABLE orders (
     items VARCHAR(20),
     amount VARCHAR(20),
     note VARCHAR(20),
-    urgent INT DEFAULT 0,
+    urgent VARCHAR(20),
     is_deleted INT DEFAULT 0,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
