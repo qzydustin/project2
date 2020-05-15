@@ -1,0 +1,184 @@
+#orders-root{
+  background-color: black;
+}
+
+#orders {
+  background-color: white;;
+}
+
+.order {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  font-size: 18pt;
+  height: 40px;
+  border-bottom: 1.5px solid black;
+}
+
+
+#table-name {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  font-size: 18pt;
+  height: 50px;
+  background-color: green;
+  color: white;
+  padding-top: 10px;
+  text-align:center;
+  box-sizing: border-box;
+}
+
+
+#table-name .order-column{
+  width: 25%;
+  
+}
+
+#table-name .amount-column{
+  width: 25%;
+
+  box-sizing: border-box;
+}
+
+#table-name .note-column{
+  width: 25%;
+
+  box-sizing: border-box;
+}
+
+#table-name .urgent-column{
+  width: 25%;
+  box-sizing: border-box;
+}
+
+#table-name .delete-operation{
+
+  box-sizing: border-box;
+}
+
+.order{
+   text-align:center;
+}
+
+.order >.items{
+  width: 25%;
+    box-sizing: border-box;
+}
+
+.order >.amount{
+  width: 25%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.order >.note{
+  width: 25%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.order >.urgent{
+  width: 25%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.order >.urgent:hover{
+  cursor: pointer;
+  color: white;
+  background-color: teal;
+  margin-top: 2px;
+  margin-bottom: 3px;
+  border-radius: 10px;
+}
+
+
+.order >.items:hover{
+  cursor: pointer;
+  color: crimson;
+}
+
+
+#add-and-load {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#add{
+  display: flex;
+  height: 40px;
+}
+
+#add > button{
+  height: 35px;
+  width: 150px;
+  font-size: 16pt;
+  box-sizing: border-box;
+  margin-top: 2px;
+}
+
+#load-all > button{
+  height: 35px;
+  width: 100px;
+  font-size: 16pt;
+  box-sizing: border-box;
+  margin-top: 2px;
+  margin-left: 30%;
+}
+
+.delete-button{
+  width: 20px;
+  box-sizing: border-box;
+  color: red;
+}
+.delete-button:hover{
+  cursor: pointer;
+  transform: scale(1.5);
+}
+
+.edit{
+  width: 50px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.edit > button{
+  cursor: pointer;
+  font-size: 14pt;
+}
+
+.save > button{
+  cursor: pointer;
+  font-size: 14pt;
+}
+
+.cancel > button{
+  cursor: pointer;
+  font-size: 14pt;
+}
+
+.edit-items {
+  width: 25%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.edit-amount {
+  width: 25%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.edit-note {
+  width: 25%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.edit-urgent {
+  width: 25%;
+  box-sizing: border-box;
+  text-align: center;
+}
