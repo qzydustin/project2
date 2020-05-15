@@ -104,6 +104,11 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  left: 0;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	z-index: 100;
 }
 
 #add{
@@ -159,25 +164,7 @@
   font-size: 14pt;
 }
 
-.edit-items {
-  width: 25%;
-  box-sizing: border-box;
-  text-align: center;
-}
-
-.edit-amount {
-  width: 25%;
-  box-sizing: border-box;
-  text-align: center;
-}
-
-.edit-note {
-  width: 25%;
-  box-sizing: border-box;
-  text-align: center;
-}
-
-.edit-urgent {
+.edit-note .edit-urgent .edit-amount .edit-items {
   width: 25%;
   box-sizing: border-box;
   text-align: center;

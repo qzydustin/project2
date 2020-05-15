@@ -43,8 +43,8 @@ function App() {
 
 
       <div id="add-and-load">
-        <div id="add"><button onClick = {onAdd}>Add order</button></div>
-        <div id="load-all"><button onClick = {onLoadAll}>Refrush</button></div>
+        <div id="add"><button onClick = {onAdd}>Order</button></div>
+        <div id="load-all"><button onClick = {onLoadAll}>Refresh</button></div>
       </div>
       
       <div id="orders">
