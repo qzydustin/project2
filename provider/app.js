@@ -15,7 +15,7 @@ connection.connect();
 function rowToObject(row) {
     return {
         id: row.id,
-        items: row.items,
+        item: row.item,
         amount: row.amount,
         note: row.note,
         urgent: row.urgent,
@@ -24,7 +24,7 @@ function rowToObject(row) {
 
 
 app.get('/allorders', (request, response) => {
-    const query = 'SELECT items, amount, note, urgent, id  FROM orders WHERE is_deleted = 0';
+    const query = 'SELECT item, amount, note, urgent, id  FROM orders WHERE is_deleted = 0';
     connection.query(query, null, (errors, rows) => {
         response.send({
             ok: true,
@@ -33,9 +33,9 @@ app.get('/allorders', (request, response) => {
     });
 });
 
-app.get('/items/:items', (request, response) => {
-    const query = 'SELECT items, amount, note, urgent, id FROM orders WHERE is_deleted = 0 AND items = ?';
-    const params = [request.params.items];
+app.get('/item/:item', (request, response) => {
+    const query = 'SELECT item, amount, note, urgent, id FROM orders WHERE is_deleted = 0 AND item = ?';
+    const params = [request.params.item];
     connection.query(query, params, (errors, rows) => {
         response.send({
             ok: true,
@@ -45,7 +45,7 @@ app.get('/items/:items', (request, response) => {
 });
 
 app.get('/urgent', (request, response) => {
-    const query = 'SELECT items, amount, note, urgent, id FROM orders WHERE is_deleted = 0 AND urgent = \'Yes\'';
+    const query = 'SELECT item, amount, note, urgent, id FROM orders WHERE is_deleted = 0 AND urgent = 1';
     connection.query(query, (errors, rows) => {
         response.send({
             ok: true,
@@ -57,8 +57,8 @@ app.get('/urgent', (request, response) => {
 
 
 app.post('/order', (request, response) => {
-    const query = 'INSERT INTO orders (items, amount, note, urgent) VALUES (?, ?, ?, ?)';
-    const params = [request.body.items, request.body.amount, request.body.note, request.body.urgent];
+    const query = 'INSERT INTO orders (item, amount, note, urgent) VALUES (?, ?, ?, ?)';
+    const params = [request.body.item, request.body.amount, request.body.note, request.body.urgent];
     connection.query(query, params, (errors, result) => {
         response.send({
             ok: true,
@@ -68,8 +68,8 @@ app.post('/order', (request, response) => {
 });
 
 app.patch('/order/:id', (request, response) => {
-    const query = 'UPDATE orders SET items = ?, amount = ?, note = ?, urgent = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?';
-    const params = [request.body.items, request.body.amount, request.body.note, request.body.urgent, request.params.id];
+    const query = 'UPDATE orders SET item = ?, amount = ?, note = ?, urgent = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?';
+    const params = [request.body.item, request.body.amount, request.body.note, request.body.urgent, request.params.id];
     connection.query(query, params, (errors, result) => {
         response.send({
             ok: true,
