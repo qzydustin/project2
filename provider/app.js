@@ -45,7 +45,7 @@ app.get('/items/:items', (request, response) => {
 });
 
 app.get('/urgent', (request, response) => {
-    const query = 'SELECT items, amount, note, urgent, id FROM orders WHERE is_deleted = 0 AND urgent = \'Yes\'';
+    const query = 'SELECT items, amount, note, urgent, id FROM orders WHERE is_deleted = 0 AND urgent = 1';
     connection.query(query, (errors, rows) => {
         response.send({
             ok: true,
