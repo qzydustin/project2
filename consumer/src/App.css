@@ -1,18 +1,19 @@
-#orders-root{
+#orders-root {
   background-color: black;
 }
 
 #orders {
-  background-color: white;;
+  background-color: #FFFFBB;
+  ;
 }
 
 .order {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  font-size: 18pt;
+  font-size: 20pt;
   height: 40px;
-  border-bottom: 1.5px solid black;
+  border-bottom: 1px solid black;
 }
 
 
@@ -22,71 +23,44 @@
   justify-content: space-evenly;
   font-size: 18pt;
   height: 50px;
-  background-color: green;
-  color: white;
+  background-color: #FFC8B4;
+  color: #FFFFBB;
   padding-top: 10px;
-  text-align:center;
+  text-align: center;
   box-sizing: border-box;
 }
 
 
-#table-name .order-column{
+.order-column,
+.note-column,
+.urgent-column,
+.amount-column {
   width: 25%;
-  
+  box-sizing: border-box;
+
 }
 
-#table-name .amount-column{
-  width: 25%;
-
+#table-name .delete-operation {
   box-sizing: border-box;
 }
 
-#table-name .note-column{
-  width: 25%;
-
-  box-sizing: border-box;
+.order {
+  text-align: center;
 }
 
-#table-name .urgent-column{
-  width: 25%;
-  box-sizing: border-box;
-}
-
-#table-name .delete-operation{
-
-  box-sizing: border-box;
-}
-
-.order{
-   text-align:center;
-}
-
-.order >.items{
-  width: 25%;
-    box-sizing: border-box;
-}
-
-.order >.amount{
-  width: 25%;
-    box-sizing: border-box;
-    text-align: center;
-}
-
-.order >.note{
+.items,
+.amount,
+.note,
+.urgent {
   width: 25%;
   box-sizing: border-box;
   text-align: center;
 }
 
-.order >.urgent{
-  width: 25%;
-  box-sizing: border-box;
-  text-align: center;
-}
 
-.order >.urgent:hover{
+.order>.urgent:hover {
   cursor: pointer;
-  color: white;
+  color: #9F88FF;
   background-color: teal;
   margin-top: 2px;
   margin-bottom: 3px;
@@ -94,7 +68,7 @@
 }
 
 
-.order >.items:hover{
+.order>.items:hover {
   cursor: pointer;
   color: crimson;
 }
@@ -105,18 +79,19 @@
   flex-direction: row;
   justify-content: center;
   left: 0;
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	z-index: 100;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: #FFC8B4;
 }
 
-#add{
+#add {
   display: flex;
   height: 40px;
 }
 
-#add > button{
+#add>button {
   height: 35px;
   width: 150px;
   font-size: 16pt;
@@ -124,7 +99,7 @@
   margin-top: 2px;
 }
 
-#load-all > button{
+#load-all>button {
   height: 35px;
   width: 100px;
   font-size: 16pt;
@@ -133,39 +108,43 @@
   margin-left: 30%;
 }
 
-.delete-button{
+.delete-button {
   width: 20px;
   box-sizing: border-box;
   color: red;
 }
-.delete-button:hover{
+
+.delete-button:hover {
   cursor: pointer;
   transform: scale(1.5);
 }
 
-.edit{
+.edit {
   width: 50px;
   box-sizing: border-box;
   text-align: center;
 }
 
-.edit > button{
+.edit>button {
   cursor: pointer;
   font-size: 14pt;
 }
 
-.save > button{
+.save>button {
   cursor: pointer;
   font-size: 14pt;
 }
 
-.cancel > button{
+.cancel>button {
   cursor: pointer;
   font-size: 14pt;
 }
 
-.edit-note .edit-urgent .edit-amount .edit-items {
-  width: 25%;
+.edit-note,
+.edit-urgent,
+.edit-amount,
+.edit-items {
+  width: 30%;
   box-sizing: border-box;
   text-align: center;
 }
