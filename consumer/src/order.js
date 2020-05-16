@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useDispatch} from 'react-redux';
-import {enterEditMode, leaveEditMode, updateOrder, startDeletingOrder, loadItems, loadUrgent} from './actions';
+import {edit, leaveEditMode, updateOrder, deleteOrder, loadItems, loadUrgent} from './actions';
 export function Order(props) {
     const order = props.order;
     const dispatch = useDispatch();
@@ -11,7 +11,7 @@ export function Order(props) {
     const [urgent, setUrgent] = useState(order.urgent);
 
     const onEdit = () =>{
-        dispatch(enterEditMode(order));
+        dispatch(edit(order));
     }
 
     const onSave = () =>{
@@ -25,7 +25,7 @@ export function Order(props) {
     }
 
     const onDelete = () =>{
-        dispatch(startDeletingOrder(order));
+        dispatch(deleteOrder(order));
     }
 
     const onSearchItems = () =>{

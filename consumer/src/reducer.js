@@ -12,12 +12,12 @@ function reducer(state = initialState, action){
                 ...state,
                 orders: action.payload,
             };
-        case Action.FinishAddingOrder:
+        case Action.AfterAdd:
             return{
                 ...state,
                 orders: [{...action.payload, isEditing: true}, ...state.orders],
             };
-        case Action.EnterEditMode:
+        case Action.EditOrder:
             return{
                 ...state,
                 orders: state.orders.map(order => {
@@ -28,7 +28,7 @@ function reducer(state = initialState, action){
                     }
                 }),
             };
-        case Action.LeaveEditMode:
+        case Action.AfterEdit:
             return{
                 ...state,
                 orders: state.orders.map(order => {
@@ -39,7 +39,7 @@ function reducer(state = initialState, action){
                     }
                 }),
             };
-        case Action.FinishSavingOrder:
+        case Action.AfterSave:
             return{
                 ...state,
                 orders: state.orders.map(order => {
@@ -50,7 +50,7 @@ function reducer(state = initialState, action){
                     }
                 }),
             };
-        case Action.FinishDeletingOrder:
+        case Action.AfterDelete:
             return{
                 ...state,
                 orders: state.orders.filter(order => order.id !== action.payload.id),

@@ -8,6 +8,7 @@
 }
 
 .order {
+  text-align: center;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -43,11 +44,6 @@
 #table-name .delete-operation {
   box-sizing: border-box;
 }
-
-.order {
-  text-align: center;
-}
-
 .items,
 .amount,
 .note,
@@ -58,6 +54,10 @@
 }
 
 
+.order>.amount:hover,.items:hover,.note:hover,.urgent:hover{
+  width: 20%;
+}
+
 .order>.urgent:hover {
   cursor: pointer;
   color: #9F88FF;
@@ -65,7 +65,6 @@
   margin-top: 2px;
   margin-bottom: 3px;
   border-radius: 10px;
-  width: 20%;
 }
 
 

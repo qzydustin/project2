@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import './App.css';
 import {Order} from './order'
 import {useSelector, useDispatch} from 'react-redux';
-import {OneOrder, startAddingOrder, loadAllOrders} from './actions';
+import {ONE, addOrder, loadAllOrders} from './actions';
 
 
 
-const oneOrder = new OneOrder("", "", "", "");
+const oneOrder = new ONE("", "", "", "");
 const newItems = oneOrder.items;
 const newAmount = oneOrder.amount;
 const newNote = oneOrder.note;
@@ -23,7 +23,7 @@ function App() {
   },[dispatch]);
 
   const onAdd = () =>{
-    dispatch(startAddingOrder(newItems, newAmount, newNote, newUrgent));
+    dispatch(addOrder(newItems, newAmount, newNote, newUrgent));
   }
 
   const onLoadAll = () =>{

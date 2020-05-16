@@ -1,53 +1,11 @@
 export const Action = Object.freeze({
     LoadOrder: 'LoadOrder',
-    FinishAddingOrder: 'FinishAddingOrder',
-    EnterEditMode: 'EnterEditMode',
-    LeaveEditMode: 'LeaveEditMode',
-    FinishSavingOrder: 'FinishSavingOrder',
-    FinishDeletingOrder: 'FinishDeletingOrder',
+    AfterAdd: 'AfterAdd',
+    EditOrder: 'EditOrder',
+    AfterEdit: 'AfterEdit',
+    AfterSave: 'AfterSave',
+    AfterDelete: 'AfterDelete',
 });
-
-export function loadOrder(order){
-    return {
-        type: Action.LoadOrder,
-        payload: order,
-    }
-}
-
-export function finishAddingOrder(order){
-    return {
-        type: Action.FinishAddingOrder,
-        payload: order,
-    }
-}
-
-export function finishSavingOrder(order){
-    return {
-        type: Action.FinishSavingOrder,
-        payload: order,
-    }
-}
-
-export function finishDeletingOrder(order){
-    return {
-        type: Action.FinishDeletingOrder,
-        payload: order,
-    }
-}
-
-export function enterEditMode(order){
-    return {
-        type: Action.EnterEditMode,
-        payload: order,
-    }
-}
-
-export function leaveEditMode(order){
-    return {
-        type: Action.LeaveEditMode,
-        payload: order,
-    }
-}
 
 export class Items {
     constructor(items){
@@ -73,7 +31,7 @@ export class Urgent {
     }
 }
 
-export class OneOrder {
+export class ONE {
     constructor(items, amount, note, urgent){
         this.items = items;
         this.amount = amount;
@@ -82,7 +40,7 @@ export class OneOrder {
     }
 }
 
-function checkForErrors(response) {
+function check(response) {
     if(!response.ok){
         throw Error(`${response.status}: ${response.statusText}`);
     }
@@ -91,10 +49,53 @@ function checkForErrors(response) {
 
 const host = "https://qzydustin-api.duckdns.org:444";
 
+export function loadOrder(order){
+    return {
+        type: Action.LoadOrder,
+        payload: order,
+    }
+}
+
+export function afterAdd(order){
+    return {
+        type: Action.AfterAdd,
+        payload: order,
+    }
+}
+
+export function afterSave(order){
+    return {
+        type: Action.AfterSave,
+        payload: order,
+    }
+}
+
+export function afterDelete(order){
+    return {
+        type: Action.AfterDelete,
+        payload: order,
+    }
+}
+
+export function edit(order){
+    return {
+        type: Action.EditOrder,
+        payload: order,
+    }
+}
+
+export function leaveEditMode(order){
+    return {
+        type: Action.AfterEdit,
+        payload: order,
+    }
+}
+
+
 export function loadAllOrders(){
     return dispatch =>{
         fetch(`${host}/allorders`)
-            .then(checkForErrors)
+            .then(check)
             .then(response => response.json())
             .then(data => {
                 if(data.ok){
@@ -108,7 +109,7 @@ export function loadAllOrders(){
 export function loadUrgent(){
     return dispatch =>{
         fetch(`${host}/urgent`)
-            .then(checkForErrors)
+            .then(check)
             .then(response => response.json())
             .then(data => {
                 if(data.ok){
@@ -122,7 +123,7 @@ export function loadUrgent(){
 export function loadItems(items){
     return dispatch =>{
         fetch(`${host}/items/${items}`)
-            .then(checkForErrors)
+            .then(check)
             .then(response => response.json())
             .then(data => {
                 if(data.ok){
@@ -135,7 +136,7 @@ export function loadItems(items){
 
 
 
-export function startAddingOrder(items, amount, note, urgent){
+export function addOrder(items, amount, note, urgent){
     const order = {items, amount, note, urgent};
     const options = {
         method: 'POST',
@@ -146,12 +147,12 @@ export function startAddingOrder(items, amount, note, urgent){
     }
     return dispatch =>{
         fetch(`${host}/order`, options)
-            .then(checkForErrors)
+            .then(check)
             .then(response => response.json())
             .then(data => {
                 if(data.ok){
                     order.id = data.id;
-                    dispatch(finishAddingOrder(order));
+                    dispatch(afterAdd(order));
                 }
                 console.log(data);
             })
@@ -169,29 +170,29 @@ export function updateOrder(order){
     }
     return dispatch =>{
         fetch(`${host}/order/${order.id}`, options)
-            .then(checkForErrors)
+            .then(check)
             .then(response => response.json())
             .then(data => {
                 if(data.ok){
-                    dispatch(finishSavingOrder(order));
+                    dispatch(afterSave(order));
                 }
             })
             .catch(e => console.error(e));
     };
 }
 
-export function startDeletingOrder(order){
+export function deleteOrder(order){
     const options = {
         method: 'DELETE',
     };
 
     return dispatch =>{
         fetch(`${host}/order/${order.id}`, options)
-            .then(checkForErrors)
+            .then(check)
             .then(response => response.json())
             .then(data => {
                 if(data.ok){
-                    dispatch(finishDeletingOrder(order));
+                    dispatch(afterDelete(order));
                 }
             })
             .catch(e => console.error(e));
