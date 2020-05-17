@@ -61,10 +61,11 @@
 .order>.urgent:hover {
   cursor: pointer;
   color: #9F88FF;
-  background-color: teal;
+  background-color: #AAAAAA;
   margin-top: 2px;
   margin-bottom: 3px;
   border-radius: 10px;
+  width: 20%;
 }
 
 
